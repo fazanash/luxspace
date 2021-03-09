@@ -2,3 +2,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+    .overlay {
+        @apply absolute;
+    }
+    .overlay * {
+        @apply transition-all duration-200;
+    }
+    .overlay.hoverable > * {
+        @apply opacity-100;
+    }
+}

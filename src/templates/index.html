@@ -26,7 +26,7 @@
 
     <!-- START: Header -->
     <header class="absolute w-full z-50 px-4">
-      <div class="container mx-auto py-5">
+      <div class="container mx-auto py-10">
         <div class="flex flex-stretch items-center">
           <div class="w-56 flex items-center">
             <img src="../images/design/logo.svg" alt="Luxspace adalah website untuk menjual barang - barang yang keren">
@@ -90,10 +90,30 @@
 
     <!-- START: Section Hero -->
       <section class="flex items-center hero">
-        <div class="w-full absolute z-20 inset-0 md:relative md:w-1/2 text-center flex flex-col justify-center hero-section">
+        <!-- START: Section Hero | Left Side -->
+        <div class="w-full absolute z-20 inset-0 md:relative md:w-1/2 text-center flex flex-col justify-center hero-caption">
           <h1 class="text-3xl md:text-5xl leading-tight font-semibold">
             The Room <br class=""/>You've Dreaming
           </h1>
+          <h2 class="px-8 text-base md:px-0 md:text-lg my-6 tracking-wide">
+            Kami menyediakan furniture berkelas yang <br class="hidden lg-block"/> membuat ruangan terasa homey
+          </h2>
+          <div>
+            <a href="#browse-the-room" class="bg-pink-400 text-black hover:bg-black hover:text-pink-400 rounded-full px-8 py-3 mt-4 inline-block flex-one transition duration-200">Explore Now</a>
+          </div>
+        </div>
+        <!-- END: Section Hero | Left Side -->
+        <div class="w-full inset-0 md:absolute md:w-1/2">
+          <div class="relative hero-image">
+            <div class="overlay inset-0 bg-black opacity-30 z-10">
+              <div class="overlay right-0 bottom-0 md:inset-0">
+                <button class="video hero-cta focus:outline-none z-30 modal-trigger" data-content=''>
+                  
+                </button>
+              </div>
+              <img src="images/content/hero-image.jpg" alt="Hosue with sofa and some plants">
+            </div>
+          </div>
         </div>
       </section>
     <!-- END: Section Hero -->
