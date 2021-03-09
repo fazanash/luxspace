@@ -2,6 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer components {
     .overlay {
         @apply absolute;
@@ -10,6 +11,25 @@
         @apply transition-all duration-200;
     }
     .overlay.hoverable > * {
+        @apply opacity-0;
+    }
+    .overlay.hoverable:hover > * {
         @apply opacity-100;
     }
+    .overlay .video {
+        @apply absolute transform bg-blue-200 bg-no-repeat bg-center w-20 h-20 rounded-full flex items-center justify-center -translate-x-1/2 -translate-y-1/2;
+        background-image: url(../images/design/icon-play.svg);
+        top: 50%;
+        left: 50%;
+    }
 }
+
+@screen sm {
+    .hero .hero-image, .hero .hero-caption {
+        min.height: 90vh;
+    }
+    .hero .hero-cta {
+        @apply w-12 h-12;
+        transform: translateX(-75px) translateY(-50px);
+        background-size: 37.5%;
+    }
