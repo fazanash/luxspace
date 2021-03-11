@@ -31,6 +31,12 @@
         transform: translateX(-150%) translateY(-50%);
         background-size: 37.5%;
     }
+    .card .card-shadow {
+        @apply transition duration-300 shadow-none h-full;
+    }
+    .card:hover .card-shadow {
+        @apply shadow-lg;
+    }
 }
 
 @screen md {
@@ -42,5 +48,15 @@
         @apply w-20 h-20;
         transform: translateX(-50%) translateY(-50%);
         background-size: 37.5%;
+    }
+}
+
+@layer utilities {
+    .streched-link {
+        @apply absolute inset-0 z-10 cursor-pointer;
+    }
+    .grid {
+        grid-auto-flow: dense;
+        grid-auto-rows: minmax(180px, auto);
     }
 }
