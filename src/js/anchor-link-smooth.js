@@ -1,10 +1,13 @@
-const smoothScrollAnchor = decument.querySelectorAll("a[href^='#']")
+const smoothScrollAnchor = document.querySelectorAll("a[href^='#']")
 
 for (let index = 0; index < smoothScrollAnchor.length; index++) {
-    const e = smoothScrollAnchor[index];
+    const el = smoothScrollAnchor[index];
     
-    e.addEventListener("click", function(){
-        e.preventDefault();
-        if(decument.getElementById(this.get.attribute("href").replace("#", "")))
-    })
+    el.addEventListener("click", function(ev) {
+        ev.preventDefault();
+        if (document.getElementById(this.getAttribute("href").replace("#", "")))
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+        });
+    });
 }
