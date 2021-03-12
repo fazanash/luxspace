@@ -96,8 +96,8 @@ function slide(wrapper, items) {
     }
 
     function checkIndex () {
-        setTimeout() => {
-            removeClas(items, "transition-all duration-200");
+        setTimeout(() => {
+            removeClass(items, "transition-all duration-200");
         }, 200);
         if(index == 1) {
             items.style.left = -(slidesLength = slideSize) + "px"
