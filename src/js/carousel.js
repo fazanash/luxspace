@@ -1,7 +1,7 @@
 import {addClass, removeClass} from './utils-class';
 
 const carouselId = document.getElementById("carousel");
-const carouseItems = document.getElementsByClassName("flex")[0];
+const carouselItems = document.getElementsByClassName("flex")[0];
 const carouselContainer = document.getElementsByClassName("container")[0];
 
 function carouselCalculateOffset() {
@@ -117,8 +117,8 @@ function slide(wrapper, items) {
     }
 }
 
-if(carouselId) {
-    slide(carouselId, carouselItems)
+if (carouselId) {
+    slide(carouselId, carouselItems);
     window.addEventListener("load", carouselCalculateOffset);
     window.addEventListener("resize", carouselCalculateOffset);
 }
