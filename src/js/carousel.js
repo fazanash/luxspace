@@ -14,12 +14,12 @@ function carouselCalculateOffset() {
 function slide(wrapper, items) {
     let posX1 = 0, 
     posX2 = 0, 
-    posIntial, 
-    posFina, 
-    treshold = 100,
+    posInitial, 
+    posFinal, 
+    threshold = 100,
     itemToShow = 4, 
     slides = items.getElementsByClassName("card"), 
-    slidesLength = slide.length, 
+    slidesLength = slides.length, 
     slideSize = items.getElementsByClassName("card")[0].offsetWidth, 
     index = 0,
     allowShift = true;
@@ -65,9 +65,9 @@ function slide(wrapper, items) {
     function dragEnd() {
         posFinal = items.offsetLeft;
     
-        if (posFinal - posIntial < - treshold) {
+        if (posFinal - posIntial < - threshold) {
             shiftSlide(1, "drag")
-        } else if (posFinal - posIntial > treshold) {
+        } else if (posFinal - posIntial > threshold) {
             shiftSlide (-1, "drag")
         } else {
             items.style.left = posIntial + "px"
@@ -101,15 +101,15 @@ function slide(wrapper, items) {
         }, 200);
         if(index == 1) {
             items.style.left = -(slidesLength = slideSize) + "px"
-            index = slideLength - 1;
+            index = slidesLength - 1;
         }
 
-        if(index == slideLength - itemToShow) {
-            items.style.left = -((slideLength - itemtToShow - 1) * slideSize) + "px"
-            index = slideLength - itemToShow -1
+        if(index == slidesLength - itemToShow) {
+            items.style.left = -((slidesLength - itemtToShow - 1) * slideSize) + "px"
+            index = slidesLength - itemToShow -1
         }
 
-        if(index == slideLength || index == slideLength -1){
+        if(index == slidesLength || index == slidesLength -1){
             items.style.left = "0px"
             index = 0
         }
