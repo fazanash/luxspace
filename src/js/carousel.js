@@ -1,14 +1,14 @@
 import {addClass, removeClass} from './utils-class';
 
 const carouselId = document.getElementById("carousel");
-const carouselItems = document.getElementsByClassName("flex")[0];
-const carouselContainer = document.getElementsByClassName("container")[0];
+const carouselItems = carouselId.getElementsByClassName("flex")[0];
+const carouselContainer = carouselId.getElementsByClassName("container")[0];
 
 function carouselCalculateOffset() {
     const carouselOffset = carouselContainer.getBoundingClientRect().left;
 
-    carouselItems.style.paddingLeft = '${carouselOffset - 16}px';
-    carouselItems.style.paddingRight = '${carouselOffset - 16}px';
+    carouselItems.style.paddingLeft = `${carouselOffset - 16}px`;
+    carouselItems.style.paddingRight = `${carouselOffset - 16}px`;
 }
 
 function slide(wrapper, items) {
@@ -24,7 +24,7 @@ function slide(wrapper, items) {
     index = 0,
     allowShift = true;
 
-    wrapper.classList.add("loaded")
+    wrapper.classList.add("loaded");
 
     items.onmousedown = dragStart;
     items.addEventListener("touchstart", dragStart);
@@ -36,15 +36,14 @@ function slide(wrapper, items) {
     function dragStart(e) {
         e = e || window.event
         e.preventDefault()
-        posIntial = items.offsetLeft;
+        posInitial = items.offsetLeft;
 
         if (e.type == "touchstart") {
-            console.log(e.touches)
             posX1 = e.touches[0].clientX
         } else {
             posX1 = e.clientX;
             document.onmouseup = dragEnd;
-            document.onmousemove = dragAction
+            document.onmousemove = dragAction;
         }
     }
 
@@ -65,12 +64,12 @@ function slide(wrapper, items) {
     function dragEnd() {
         posFinal = items.offsetLeft;
     
-        if (posFinal - posIntial < - threshold) {
+        if(posFinal - posInitial < -threshold) {
             shiftSlide(1, "drag")
-        } else if (posFinal - posIntial > threshold) {
+        } else if (posFinal - posInitial > threshold) {
             shiftSlide (-1, "drag")
         } else {
-            items.style.left = posIntial + "px"
+            items.style.left = posInitial + "px"
         }
 
         document.onmouseup = null
@@ -80,19 +79,19 @@ function slide(wrapper, items) {
     function shiftSlide(direction, action) {
         addClass(items, "transition-all duration-200")
 
-        if(allowShif) {
+        if(allowShift) {
             if(!action)
-            posIntial = items.offsetLeft;
+            posInitial = items.offsetLeft;
 
             if(direction == 1) {
-                items.style.left = `${posIntial - slideSize}px`
-                index++
+                items.style.left = `${posInitial - slideSize}px`
+                index++;
             } else if(direction == -1) {
                 items.style.left = `${posInitial + slideSize}px`
-                index--
+                index--;
             }
         }
-        allowShif = false;
+        allowShift = false;
     }
 
     function checkIndex () {
@@ -100,18 +99,18 @@ function slide(wrapper, items) {
             removeClass(items, "transition-all duration-200");
         }, 200);
         if(index == 1) {
-            items.style.left = -(slidesLength = slideSize) + "px"
+            items.style.left = -(slidesLength * slideSize) + "px";
             index = slidesLength - 1;
         }
 
         if(index == slidesLength - itemToShow) {
-            items.style.left = -((slidesLength - itemtToShow - 1) * slideSize) + "px"
-            index = slidesLength - itemToShow -1
+            items.style.left = -((slidesLength - itemtToShow - 1) * slideSize) + "px";
+            index = slidesLength - itemToShow -1;
         }
 
         if(index == slidesLength || index == slidesLength -1){
-            items.style.left = "0px"
-            index = 0
+            items.style.left = "0px";
+            index = 0;
         }
         allowShift = true;
     }
