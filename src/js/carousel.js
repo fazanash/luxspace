@@ -15,7 +15,7 @@ function slide(wrapper, items) {
     let posX1 = 0, 
     posX2 = 0, 
     posInitial, 
-    posFinal, 
+    posFinal,
     threshold = 100,
     itemToShow = 4, 
     slides = items.getElementsByClassName("card"), 
@@ -91,7 +91,7 @@ function slide(wrapper, items) {
                 index--;
             }
         }
-        allowShift = false;
+        allowShift = true;
     }
 
     function checkIndex () {
