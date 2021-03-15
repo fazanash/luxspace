@@ -91,14 +91,14 @@ function slide(wrapper, items) {
                 index--;
             }
         }
-        allowShift = true;
+        allowShift = false;
     }
 
     function checkIndex () {
         setTimeout(() => {
             removeClass(items, "transition-all duration-200");
         }, 200);
-        if(index == 1) {
+        if(index == -1) {
             items.style.left = -(slidesLength * slideSize) + "px";
             index = slidesLength - 1;
         }
