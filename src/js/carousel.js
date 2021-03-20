@@ -39,6 +39,7 @@ function slide(wrapper, items) {
         posInitial = items.offsetLeft;
 
         if (e.type == "touchstart") {
+            console.log(e.touches)
             posX1 = e.touches[0].clientX
         } else {
             posX1 = e.clientX;
